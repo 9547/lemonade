@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.lemonade</string><!--这个名字必须和文件名一致-->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/lemonade</string>
+        <string>server</string>
+    <string>-allow=0.0.0.0/0</string>
+        <string>-port=2489</string>
+        <string>-log-level=0</string>
+    </array>
+    <key>RunAtLoad</key><!--加载时候运行-->
+    <true/>
+    <key>KeepAlive</key><!--后台保持运行-->
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/lemonade.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/lemonade.log</string>
+    <key>UserName</key>
+    <string>zhengdelweng</string><!--执行用户-->
+</dict>
+</plist>
