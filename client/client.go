@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"net/rpc"
 	"os"
+	"time"
 
 	log "github.com/inconshreveable/log15"
 
@@ -54,9 +55,12 @@ func serveFile(fname string) (string, <-chan struct{}, error) {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
 			}
-			w.Write(b)
 
+			w.Write(b)
 			w.(http.Flusher).Flush()
+
+			// ensure the body is fully sent to client
+			time.Sleep(2 * time.Second)
 			finished <- struct{}{}
 		}))
 	}()
